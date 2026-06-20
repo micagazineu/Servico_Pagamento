@@ -167,12 +167,49 @@ Além de gerar relatórios locais, existem soluções especializadas no ecossist
 
 ## 📈 Evidência de Execução Bem-Sucedida da Pipeline
 
-Abaixo estão descritos e documentados os resultados reais obtidos na execução bem-sucedida da pipeline do GitHub Actions.
+Abaixo estão as capturas de tela e explicações que comprovam a execução bem-sucedida da nossa pipeline de CI para cada um dos gatilhos exigidos.
 
-### 📸 Captura de Tela (Evidência Visual)
+### 📸 Evidências Visuais (Capturas de Tela)
 
-Abaixo está o registro visual da execução com sucesso (status verde) da nossa pipeline de CI contendo as etapas executadas e a publicação do relatório de testes:
+#### 1. Execução por Push (Gatilho automático ao enviar commits)
+![Evidência de Execução por Push](./evidencia_push.png)
 
+#### 2. Execução Manual (Gatilho manual através do botão "Run workflow")
+![Evidência de Execução Manual](./evidencia_manual.png)
+
+#### 3. Execução Agendada (Gatilho automático por Cron/Schedule)
+![Evidência de Execução Agendada](./evidencia_schedule.png)
+
+---
+
+### 💡 Como adicionar as suas capturas de tela acima:
+
+Siga este passo a passo simples para salvar e carregar os seus próprios prints da tela no repositório:
+
+1. **Tire os prints no GitHub Actions**:
+   * Vá em **Actions** no seu repositório GitHub.
+   * Procure por execuções que tenham as seguintes etiquetas no histórico:
+     * **Push**: O run terá o nome do seu commit recente.
+     * **Manual**: O run exibirá `Manually triggered by seu-usuario`.
+     * **Scheduled**: O run exibirá um ícone de relógio e a etiqueta `Scheduled`.
+   * Clique em cada uma e tire um print-screen da tela mostrando o status de sucesso verde (✅).
+
+2. **Salve os arquivos com nomes exatos**:
+   * Salve os prints na pasta raiz do projeto (`servico-de-pagamento/`) com estes nomes exatos (tudo minúsculo):
+     * Print do Push ➡️ **`evidencia_push.png`**
+     * Print Manual ➡️ **`evidencia_manual.png`**
+     * Print do Agendamento (Schedule) ➡️ **`evidencia_schedule.png`**
+
+3. **Envie as imagens para o GitHub**:
+   Abra o seu terminal na pasta do projeto e envie as imagens rodando:
+   ```bash
+   git add evidencia_push.png evidencia_manual.png evidencia_schedule.png
+   git commit -m "docs: adicionar capturas de tela de evidências"
+   git push origin main
+   ```
+   *(Uma vez feito o push, as imagens aparecerão automaticamente nas seções acima quando você abrir a página do seu projeto no GitHub!)*
+
+---
 
 ### 📋 Evidências dos Diferentes Tipos de Execução da Pipeline
 
