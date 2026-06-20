@@ -1,5 +1,7 @@
 # 🚀 Pipeline de Integração Contínua (CI) com GitHub Actions e Relatórios de Testes
 
+[![CI - Integração Contínua](https://github.com/micagazineu/Servico_Pagamento/actions/workflows/ci.yml/badge.svg)](https://github.com/micagazineu/Servico_Pagamento/actions/workflows/ci.yml)
+
 Este projeto consiste em um **Serviço de Pagamento** para gestão de boletos desenvolvido em Node.js com testes automatizados utilizando o framework **Mocha**. 
 
 O principal objetivo deste repositório é demonstrar o desenvolvimento e a implementação de uma **Pipeline de Integração Contínua (CI) robusta utilizando GitHub Actions**, contemplando diferentes tipos de gatilhos, execução automática de testes, geração de relatórios interativos e o armazenamento seguro desses relatórios como artefatos da pipeline.
@@ -188,7 +190,7 @@ Para atender a todos os requisitos do projeto, cada um dos três gatilhos config
 2. **Gatilho 2: Execução Manual (`workflow_dispatch`)**
    * **Como funciona**: Disparada por qualquer desenvolvedor autorizado que clica no botão "Run workflow" na interface web.
    * **Identificador no Painel**: No histórico de execuções, o run exibe a etiqueta:
-     `Manually triggered by michaellaoliveira` (ou o nome do usuário que efetuou o disparo).
+     `Manually triggered by micagazineu` (ou o nome do usuário que efetuou o disparo).
 
 3. **Gatilho 3: Execução Agendada (`schedule`)**
    * **Como funciona**: Disparada de forma autônoma de acordo com a nossa regra cron (`0 0 * * *` - diariamente à meia-noite UTC).
