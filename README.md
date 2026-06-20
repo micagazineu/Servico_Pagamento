@@ -65,14 +65,15 @@ Para cobrir todos os cenários operacionais necessários no ciclo de vida de sof
 A pipeline roda em um container com o sistema operacional **Ubuntu Linux** (`ubuntu-latest`) e executa as seguintes etapas sequenciais:
 
 ```
-[Código no GitHub] ──> [Checkout Código] ──> [Setup Node.js v22] ──> [Instalar Deps] ──> [Executar Testes] ──> [Upload Relatório]
+[Código no GitHub] ──> [Checkout Código] ──> [Identificar Origem] ──> [Setup Node.js v22] ──> [Instalar Deps] ──> [Executar Testes] ──> [Upload Relatório]
 ```
 
 1. **Checkout do Código (`actions/checkout@v4`)**: Clona o repositório dentro do runner temporário da máquina do GitHub.
-2. **Setup do Node.js (`actions/setup-node@v4`)**: Define a versão estável `22` (LTS) do runtime do Node.js e configura o cache de pacotes `npm` baseado no arquivo de trava `package-lock.json` para acelerar as execuções subsequentes.
-3. **Instalação de Dependências (`npm ci`)**: Instala de forma limpa, rápida e determinística as dependências do projeto a partir do `package-lock.json` (adequado para ambientes de CI).
-4. **Execução dos Testes e Geração de Relatórios (`npm run test:report`)**: Executa a suíte de testes unitários através do Mocha com o reporter `mochawesome`, gerando o relatório nos formatos HTML interativo e JSON.
-5. **Upload do Relatório de Testes (`actions/upload-artifact@v4`)**: Salva a pasta `mochawesome-report/` como um artefato persistente na pipeline com retenção configurada de **30 dias**. O parâmetro `if: always()` garante que o upload ocorra mesmo se algum teste falhar, permitindo auditoria visual do erro.
+2. **Identificar Origem do Disparo (`echo`)**: Exibe de forma clara nos logs qual evento disparou a execução atual (`push`, `workflow_dispatch` ou `schedule`), permitindo auditoria visual e rastreamento direto.
+3. **Setup do Node.js (`actions/setup-node@v4`)**: Define a versão estável `22` (LTS) do runtime do Node.js e configura o cache de pacotes `npm` baseado no arquivo de trava `package-lock.json` para acelerar as execuções subsequentes.
+4. **Instalação de Dependências (`npm ci`)**: Instala de forma limpa, rápida e determinística as dependências do projeto a partir do `package-lock.json` (adequado para ambientes de CI).
+5. **Execução dos Testes e Geração de Relatórios (`npm run test:report`)**: Executa a suíte de testes unitários através do Mocha com o reporter `mochawesome`, gerando o relatório nos formatos HTML interativo e JSON.
+6. **Upload do Relatório de Testes (`actions/upload-artifact@v4`)**: Salva a pasta `mochawesome-report/` como um artefato persistente na pipeline com retenção configurada de **30 dias**. O parâmetro `if: always()` garante que o upload ocorra mesmo se algum teste falhar, permitindo auditoria visual do erro.
 
 ---
 
@@ -172,12 +173,6 @@ Abaixo estão descritos e documentados os resultados reais obtidos na execução
 
 Abaixo está o registro visual da execução com sucesso (status verde) da nossa pipeline de CI contendo as etapas executadas e a publicação do relatório de testes:
 
-![Evidência de Execução da Pipeline](./evidencia.png)
-
-*💡 **Instruções**: Para carregar o seu próprio print de tela na imagem acima para a entrega oficial:*
-1. *Tire uma captura de tela (print) da página da sua pipeline finalizada com sucesso no GitHub Actions.*
-2. *Salve esta imagem com o nome exato **`evidencia.png`** na raiz deste repositório.*
-3. *Adicione e envie a imagem no seu próximo commit (`git add evidencia.png && git commit -m "docs: adicionar print de evidência" && git push`).*
 
 ### 📋 Evidências dos Diferentes Tipos de Execução da Pipeline
 
@@ -193,7 +188,7 @@ Para atender a todos os requisitos do projeto, cada um dos três gatilhos config
      `Manually triggered by micagazineu` (ou o nome do usuário que efetuou o disparo).
 
 3. **Gatilho 3: Execução Agendada (`schedule`)**
-   * **Como funciona**: Disparada de forma autônoma de acordo com a nossa regra cron (`0 0 * * *` - diariamente à meia-noite UTC).
+   * **Como funciona**: Disparada de forma autônoma de acordo com a nossa regra cron (`40 15 * * *` - diariamente às treze e vinte UTC).
    * **Identificador no Painel**: No histórico do GitHub, o run exibe um ícone de relógio e a etiqueta clara:
      `Scheduled`. O ator que dispara a ação é indicado como o sistema interno do `github-actions`.
 
