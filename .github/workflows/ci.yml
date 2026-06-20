@@ -25,11 +25,11 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22' # Atualizado para Node.js v22 (LTS estável) para máxima compatibilidade e sem deprecations
           cache: 'npm'
 
       - name: Instalar Dependências
-        run: npm install
+        run: npm ci # Instalador limpo e otimizado para pipelines de CI (utiliza o package-lock.json)
 
       - name: Executar Testes e Gerar Relatório
         run: npm run test:report

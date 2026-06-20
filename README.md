@@ -63,12 +63,12 @@ Para cobrir todos os cenários operacionais necessários no ciclo de vida de sof
 A pipeline roda em um container com o sistema operacional **Ubuntu Linux** (`ubuntu-latest`) e executa as seguintes etapas sequenciais:
 
 ```
-[Código no GitHub] ──> [Checkout Código] ──> [Setup Node.js v20] ──> [Instalar Deps] ──> [Executar Testes] ──> [Upload Relatório]
+[Código no GitHub] ──> [Checkout Código] ──> [Setup Node.js v22] ──> [Instalar Deps] ──> [Executar Testes] ──> [Upload Relatório]
 ```
 
 1. **Checkout do Código (`actions/checkout@v4`)**: Clona o repositório dentro do runner temporário da máquina do GitHub.
-2. **Setup do Node.js (`actions/setup-node@v4`)**: Define a versão `20` do runtime do Node.js e configura o cache de pacotes `npm` para acelerar builds subsequentes.
-3. **Instalação de Dependências (`npm install`)**: Instala de forma limpa as dependências do projeto (Mocha e Mochawesome).
+2. **Setup do Node.js (`actions/setup-node@v4`)**: Define a versão estável `22` (LTS) do runtime do Node.js e configura o cache de pacotes `npm` baseado no arquivo de trava `package-lock.json` para acelerar as execuções subsequentes.
+3. **Instalação de Dependências (`npm ci`)**: Instala de forma limpa, rápida e determinística as dependências do projeto a partir do `package-lock.json` (adequado para ambientes de CI).
 4. **Execução dos Testes e Geração de Relatórios (`npm run test:report`)**: Executa a suíte de testes unitários através do Mocha com o reporter `mochawesome`, gerando o relatório nos formatos HTML interativo e JSON.
 5. **Upload do Relatório de Testes (`actions/upload-artifact@v4`)**: Salva a pasta `mochawesome-report/` como um artefato persistente na pipeline com retenção configurada de **30 dias**. O parâmetro `if: always()` garante que o upload ocorra mesmo se algum teste falhar, permitindo auditoria visual do erro.
 
