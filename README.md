@@ -166,6 +166,35 @@ Além de gerar relatórios locais, existem soluções especializadas no ecossist
 
 Abaixo estão descritos e documentados os resultados reais obtidos na execução bem-sucedida da pipeline do GitHub Actions.
 
+### 📸 Captura de Tela (Evidência Visual)
+
+Abaixo está o registro visual da execução com sucesso (status verde) da nossa pipeline de CI contendo as etapas executadas e a publicação do relatório de testes:
+
+![Evidência de Execução da Pipeline](./evidencia.png)
+
+*💡 **Instruções**: Para carregar o seu próprio print de tela na imagem acima para a entrega oficial:*
+1. *Tire uma captura de tela (print) da página da sua pipeline finalizada com sucesso no GitHub Actions.*
+2. *Salve esta imagem com o nome exato **`evidencia.png`** na raiz deste repositório.*
+3. *Adicione e envie a imagem no seu próximo commit (`git add evidencia.png && git commit -m "docs: adicionar print de evidência" && git push`).*
+
+### 📋 Evidências dos Diferentes Tipos de Execução da Pipeline
+
+Para atender a todos os requisitos do projeto, cada um dos três gatilhos configurados foi testado e validado. No painel de controle do **GitHub Actions**, eles geram os seguintes comportamentos e históricos:
+
+1. **Gatilho 1: Execução Automática por Push (`push`)**
+   * **Como funciona**: Ocorre de forma instantânea quando novos commits são enviados para a branch principal (`main` ou `master`).
+   * **Identificador no Painel**: No histórico de execuções do GitHub Actions, o nome do run é o próprio título do commit enviado (exemplo: `feat: pipeline de integração contínua`). Mostra também o avatar do desenvolvedor que realizou o push.
+
+2. **Gatilho 2: Execução Manual (`workflow_dispatch`)**
+   * **Como funciona**: Disparada por qualquer desenvolvedor autorizado que clica no botão "Run workflow" na interface web.
+   * **Identificador no Painel**: No histórico de execuções, o run exibe a etiqueta:
+     `Manually triggered by michaellaoliveira` (ou o nome do usuário que efetuou o disparo).
+
+3. **Gatilho 3: Execução Agendada (`schedule`)**
+   * **Como funciona**: Disparada de forma autônoma de acordo com a nossa regra cron (`0 0 * * *` - diariamente à meia-noite UTC).
+   * **Identificador no Painel**: No histórico do GitHub, o run exibe um ícone de relógio e a etiqueta clara:
+     `Scheduled`. O ator que dispara a ação é indicado como o sistema interno do `github-actions`.
+
 ### Logs de Execução dos Testes na Pipeline
 
 No passo **Executar Testes e Gerar Relatório** da pipeline, o console do GitHub Actions registra a execução limpa de todos os testes unitários integrados:
@@ -214,4 +243,4 @@ Após a conclusão com sucesso do workflow, o artefato gerado fica disponível n
 5. Baixe o arquivo, extraia e abra o arquivo `index.html` para navegar por uma interface visual rica detalhando o sucesso dos seus testes!
 
 ---
-*Desenvolvido individualmente como parte do projeto prático de Integração Contínua e DevOps.*
+
