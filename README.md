@@ -1,5 +1,8 @@
 # 🚀 Pipeline de Integração Contínua (CI) com GitHub Actions e Relatórios de Testes
 
+⚠️ *Substitua `<seu-usuario-github>` e `<seu-repositorio>` na URL abaixo para exibir o status real em tempo real:*
+![CI Status](https://img.shields.io/github/actions/workflow/status/michaellaoliveira/Servico_Pagamento/ci.yml?branch=main&label=CI%20Status&style=for-the-badge&logo=github)
+
 Este projeto consiste em um **Serviço de Pagamento** para gestão de boletos desenvolvido em Node.js com testes automatizados utilizando o framework **Mocha**. 
 
 O principal objetivo deste repositório é demonstrar o desenvolvimento e a implementação de uma **Pipeline de Integração Contínua (CI) robusta utilizando GitHub Actions**, contemplando diferentes tipos de gatilhos, execução automática de testes, geração de relatórios interativos e o armazenamento seguro desses relatórios como artefatos da pipeline.
