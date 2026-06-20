@@ -11,7 +11,7 @@ on:
       - master
   workflow_dispatch: # Permite execução manual no painel do GitHub
   schedule:
-    - cron: '0 0 * * *' # Execução agendada diariamente à meia-noite (UTC)
+    - cron: '45 17 * * *' # Execução agendada ajustada temporariamente para as 17:45 UTC
 
 jobs:
   build-and-test:
