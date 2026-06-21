@@ -225,7 +225,7 @@ Para atender a todos os requisitos do projeto, cada um dos três gatilhos config
      `Manually triggered by micagazineu` (ou o nome do usuário que efetuou o disparo).
 
 3. **Gatilho 3: Execução Agendada (`schedule`)**
-   * **Como funciona**: Disparada de forma autônoma de acordo com a nossa regra cron (`40 15 * * *` - diariamente às treze e vinte UTC).
+   * **Como funciona**: Disparada de forma autônoma de acordo com a nossa regra cron (`0 12 * * *` - diariamente às 08:00 horário de Manaus - UTC-4)
    * **Identificador no Painel**: No histórico do GitHub, o run exibe um ícone de relógio e a etiqueta clara:
      `Scheduled`. O ator que dispara a ação é indicado como o sistema interno do `github-actions`.
 
